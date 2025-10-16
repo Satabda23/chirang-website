@@ -1,0 +1,400 @@
+/* src/components/header/MainHeader.css */
+
+/* Main Header Container */
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Top Section (Logo & Brand) */
+.header-top {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* Brand Section */
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.logo {
+    height: 65px;
+    width: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    transform: scale(3.5);
+
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.brand-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #4b5563;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu-toggle:hover {
+    color: #2563eb;
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Navigation Bar */
+.header-nav {
+    background-color: #1e40af;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link,
+.nav-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem 0.75rem;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-dropdown-btn:hover {
+    background-color: #1e3a8a;
+}
+
+.nav-link.active {
+    background-color: #1e3a8a;
+}
+
+.dropdown-icon {
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+
+    .nav-link,
+    .nav-dropdown-btn {
+        padding: 1rem 0.5rem;
+        font-size: 12px;
+    }
+
+    .search-input {
+        width: 150px;
+    }
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 256px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 50;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #374151;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    width: 200px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.search-btn {
+    background-color: #eab308;
+    color: #1f2937;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #ca8a04;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    padding: 1rem 0;
+    border-top: 1px solid #1e3a8a;
+}
+
+.mobile-search {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.mobile-search-input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.mobile-search-btn {
+    background-color: #eab308;
+    color: #1f2937;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.mobile-nav-item {
+    border-bottom: 1px solid #1e3a8a;
+}
+
+.mobile-nav-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-link,
+.mobile-dropdown-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-dropdown-btn:hover {
+    background-color: #1e3a8a;
+}
+
+.mobile-dropdown-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown {
+    background-color: #1e3a8a;
+}
+
+.mobile-dropdown-item {
+    display: block;
+    padding: 0.5rem 2rem;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-dropdown-item:hover {
+    background-color: #1e40af;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .search-form {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .brand-title {
+        font-size: 24px;
+    }
+
+    .brand-subtitle {
+        font-size: 12px;
+    }
+
+    .logo {
+        height: 48px;
+        width: 48px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-title {
+        font-size: 20px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .brand-section {
+        gap: 0.5rem;
+    }
+
+    .header-top-content {
+        padding: 0.75rem 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .main-header {
+        position: static;
+        box-shadow: none;
+    }
+
+    .header-nav {
+        display: none;
+    }
+}

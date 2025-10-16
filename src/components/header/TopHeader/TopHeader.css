@@ -1,0 +1,186 @@
+/* src/components/header/TopHeaderBar.css */
+
+.top-header-bar {
+    background-color: #f97316;
+    color: white;
+    font-size: 14px;
+}
+
+.top-header-bar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.top-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 13px;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.social-link {
+    color: white;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #fed7aa;
+}
+
+.social-link .icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Accessibility Options */
+.accessibility-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.language-selector .label {
+    font-size: 12px;
+}
+
+.language-dropdown {
+    background-color: #ea580c;
+    color: white;
+    font-size: 12px;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.language-dropdown:hover {
+    background-color: #c2410c;
+}
+
+.language-dropdown option {
+    background-color: white;
+    color: #333;
+}
+
+/* Divider */
+.divider {
+    color: #fdba74;
+    font-weight: 300;
+}
+
+/* Font Size Controls */
+.font-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.font-btn {
+    background-color: #ea580c;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.font-btn:hover {
+    background-color: #c2410c;
+}
+
+.font-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Accessibility Links */
+.accessibility-link {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.accessibility-link:hover {
+    color: #fed7aa;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .top-header-content {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+    }
+
+    .social-icons {
+        order: 1;
+    }
+
+    .accessibility-options {
+        order: 2;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .language-selector .label {
+        display: none;
+    }
+
+    .divider {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .top-header-bar {
+        font-size: 12px;
+    }
+
+    .font-controls {
+        gap: 0.25rem;
+    }
+
+    .font-btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 11px;
+    }
+
+    .accessibility-link {
+        font-size: 11px;
+    }
+
+    .social-link .icon {
+        width: 14px;
+        height: 14px;
+    }
+}
