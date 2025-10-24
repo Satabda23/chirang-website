@@ -1,7 +1,5 @@
-// src/components/header/TopHeaderBar.jsx
 import { Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 import './TopHeader.css';
-
 const TopHeader = () => {
   const handleFontIncrease = () => {
     const currentSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -21,7 +19,6 @@ const TopHeader = () => {
     <div className="top-header-bar">
       <div className="container">
         <div className="top-header-content">
-          {/* Left - Social Media Icons */}
           <div className="social-icons">
             <a 
               href="https://facebook.com" 
@@ -61,9 +58,7 @@ const TopHeader = () => {
             </a>
           </div>
 
-          {/* Right - Language & Accessibility Options */}
           <div className="accessibility-options">
-            {/* Language Selector */}
             <div className="language-selector">
               <span className="label">Language:</span>
               <select 
@@ -71,15 +66,13 @@ const TopHeader = () => {
                 aria-label="Select Language"
               >
                 <option value="en">English</option>
-                <option value="as">অসমীয়া (Assamese)</option>
-                <option value="hi">हिन्दी (Hindi)</option>
+                <option value="as">অসমীয়া</option>
+                <option value="hi">हिन्दी</option>
               </select>
             </div>
 
-            {/* Divider */}
             <span className="divider">|</span>
 
-            {/* Font Size Controls */}
             <div className="font-controls">
               <button
                 onClick={handleFontIncrease}
@@ -107,10 +100,8 @@ const TopHeader = () => {
               </button>
             </div>
 
-            {/* Divider */}
             <span className="divider">|</span>
 
-            {/* Screen Reader Access */}
             <button 
               className="accessibility-link"
               aria-label="Screen Reader Access"
@@ -118,15 +109,13 @@ const TopHeader = () => {
               Screen Reader
             </button>
 
-            {/* Divider */}
             <span className="divider">|</span>
 
-            {/* Skip to Main Content */}
             <a 
               href="#main-content" 
               className="accessibility-link"
             >
-              Skip to Main Content
+              Skip to Content
             </a>
           </div>
         </div>

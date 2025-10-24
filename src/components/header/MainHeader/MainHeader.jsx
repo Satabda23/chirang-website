@@ -1,19 +1,16 @@
-// src/components/header/MainHeader.jsx
+// src/components/header/MainHeader/MainHeader.jsx
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, Search } from 'lucide-react';
 import './MainHeader.css';
 
 const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   const navigationItems = [
-    { 
-      name: 'HOME', 
-      path: '/' 
-    },
+    { name: 'HOME', path: '/' },
     {
       name: 'ABOUT',
       hasDropdown: true,
@@ -22,36 +19,80 @@ const MainHeader = () => {
         { name: 'About District', path: '/about/about-district' },
         { name: 'District Profile', path: '/about/district-profile' },
         { name: 'History', path: '/about/history' },
-        { name: 'Previous District Commissioners', path: '/about/previous-dcs' },
+        { name: 'Previous District Commissioners', path: '/about/previous-commissioners' },
       ]
     },
     {
-      name: 'ADMINISTRATION',
+      name: 'DEPARTMENTS',
       hasDropdown: true,
+      hasMultiLevel: true,
       dropdownItems: [
-        { name: 'District Commissioner', path: '/administration/dc' },
-        { name: 'Additional Deputy Commissioner', path: '/administration/adc' },
-        { name: 'Sub-Divisional Officers', path: '/administration/sdo' },
-        { name: 'Circle Officers', path: '/administration/circle-officers' },
-        { name: 'Organization Chart', path: '/administration/org-chart' },
+        {
+          name: 'Agriculture',
+          hasSubDropdown: true,
+          subItems: [
+            { name: 'PM Kishan', path: '/departments/agriculture/pm-kishan' },
+            { name: 'Soil Health Card', path: '/departments/agriculture/soil-health' },
+            { name: 'Crop Insurance', path: '/departments/agriculture/crop-insurance' },
+            { name: 'Irrigation Schemes', path: '/departments/agriculture/irrigation' }
+          ]
+        },
+        { name: 'Animal Husbandry and Veterinary', path: '/departments/animal-husbandry' },
+        { name: 'District Disaster Management Authority', path: '/departments/ddma' },
+        { name: 'Economics and Statistics', path: '/departments/economics' },
+        {
+          name: 'Education',
+          hasSubDropdown: true,
+          subItems: [
+            { name: 'Primary Education', path: '/departments/education/primary' },
+            { name: 'Secondary Education', path: '/departments/education/secondary' },
+            { name: 'Higher Education', path: '/departments/education/higher' },
+            { name: 'Adult Education', path: '/departments/education/adult' }
+          ]
+        },
+        {
+          name: 'Election',
+          hasSubDropdown: true,
+          subItems: [
+            { name: 'Lok Sabha Election 2024', path: '/departments/election/lok-sabha-2024' },
+            { name: '19-Sidli (ST) LAC', path: '/departments/election/sidli' },
+            { name: '20-Bijni LAC', path: '/departments/election/bijni' },
+            { name: 'Bye Election 2024', path: '/departments/election/bye-2024' }
+          ]
+        },
+        { name: 'Fishery', path: '/departments/fishery' },
+        { name: 'Food, Civil Supplies and Consumer Affairs', path: '/departments/food-civil' },
+        { name: 'Forest', path: '/departments/forest' },
+        { name: 'Handloom and Textile', path: '/departments/handloom' },
+        { name: 'Health and Family Welfare', path: '/departments/health' },
+        { name: 'Industry', path: '/departments/industry' },
+        { name: 'Irrigation', path: '/departments/irrigation' },
+        { name: 'Labour & Employment', path: '/departments/labour' },
+        { name: 'Panchayat and Rural Development', path: '/departments/panchayat' },
+        { name: 'Sericulture', path: '/departments/sericulture' },
+        { name: 'Soil Conservation', path: '/departments/soil-conservation' },
+        { name: 'Sports and Youth Welfare', path: '/departments/sports' },
+        { name: 'Town and Country Planning', path: '/departments/town-planning' },
+        { name: 'Transport', path: '/departments/transport' },
+        { name: 'Treasury', path: '/departments/treasury' },
+        { name: 'Urban Development', path: '/departments/urban-development' },
+        { name: 'Water Resource', path: '/departments/water-resource' },
+        { name: 'Women and Child Development', path: '/departments/women-child' }
       ]
     },
     {
       name: 'INFORMATION & SERVICES',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Right to Public Services', path: '/services/right-to-public-services' },
-        { name: 'e-District', path: '/services/e-district' },
-        { name: 'RTI Act', path: '/services/rti-act' },
-        { name: 'Employment Registration', path: '/services/employment-registration' },
-        { name: 'Health Services', path: '/services/health-services' },
-        { name: 'Arms Licence', path: '/services/arms-licence' },
+        { name: 'Right to Public Services', path: '/services/rtps' },
+        { name: 'e-District Portal', path: '/services/e-district' },
+        { name: 'RTI Act', path: '/services/rti' },
+        { name: 'Employment Registration', path: '/services/employment' },
+        { name: 'Health Services', path: '/services/health' },
+        { name: 'Certificate Services', path: '/services/certificates' },
       ]
     },
-    {
-      name: 'SCHEMES',
-      path: '/schemes'
-    },
+    { name: 'SCHEMES', path: '/schemes' },
     {
       name: 'DOCUMENTS',
       hasDropdown: true,
@@ -64,17 +105,27 @@ const MainHeader = () => {
         { name: 'Forms', path: '/documents/forms' },
       ]
     },
-    {
-      name: 'CONTACT US',
-      path: '/contact-us'
-    }
+    { name: 'CONTACT US', path: '/contact-us' }
   ];
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     if (searchQuery.trim()) {
       window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
     }
+  };
+
+  const handleMouseEnter = (itemName) => {
+    setActiveDropdown(itemName);
+    setActiveSubDropdown(null);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+    setActiveSubDropdown(null);
+  };
+
+  const handleSubDropdownEnter = (subItemName) => {
+    setActiveSubDropdown(subItemName);
   };
 
   const toggleDropdown = (itemName) => {
@@ -87,29 +138,20 @@ const MainHeader = () => {
       <div className="header-top">
         <div className="container">
           <div className="header-top-content">
-            {/* Logo Section */}
-            <Link to="/" className="brand-section">
-              {/* Government Logo */}
+            <a href="/" className="brand-section">
               <div className="logo-wrapper">
                 <img 
                   src="/logo.JPG" 
-                  alt="Government of Assam Logo" 
+                  alt="Chirang District Logo" 
                   className="logo"
                 />
               </div>
-              
-              {/* Text Content */}
-              {/* <div className="brand-text">
-                <span className="brand-subtitle">
-                  GOVERNMENT OF ASSAM
-                </span>
-                <h1 className="brand-title">
-                  Chirang District
-                </h1>
-              </div> */}
-            </Link>
+              <div className="brand-text">
+                <span className="brand-subtitle">GOVERNMENT OF ASSAM</span>
+                <h1 className="brand-title">Chirang District</h1>
+              </div>
+            </a>
 
-            {/* Mobile Menu Toggle */}
             <button
               className="mobile-menu-toggle"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -131,8 +173,8 @@ const MainHeader = () => {
                 <div
                   key={index}
                   className="nav-item"
-                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {item.hasDropdown ? (
                     <>
@@ -143,53 +185,74 @@ const MainHeader = () => {
                       
                       {/* Dropdown Menu */}
                       {activeDropdown === item.name && (
-                        <div className="dropdown-menu">
+                        <div className={`dropdown-menu ${item.hasMultiLevel ? 'multi-level' : ''}`}>
                           {item.dropdownItems.map((dropdownItem, dropIndex) => (
-                            <Link
-                              key={dropIndex}
-                              to={dropdownItem.path}
-                              className="dropdown-item"
-                            >
-                              {dropdownItem.name}
-                            </Link>
+                            <div key={dropIndex} className="dropdown-item-wrapper">
+                              {dropdownItem.hasSubDropdown ? (
+                                <div
+                                  className="dropdown-item has-sub"
+                                  onMouseEnter={() => handleSubDropdownEnter(dropdownItem.name)}
+                                >
+                                  <span>{dropdownItem.name}</span>
+                                  <ChevronRight className="sub-arrow" />
+                                  
+                                  {/* Sub-Dropdown Menu */}
+                                  {activeSubDropdown === dropdownItem.name && (
+                                    <div className="sub-dropdown">
+                                      {dropdownItem.subItems.map((subItem, subIndex) => (
+                                        <a
+                                          key={subIndex}
+                                          href={subItem.path}
+                                          className="sub-dropdown-item"
+                                        >
+                                          {subItem.name}
+                                        </a>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ) : (
+                                <a
+                                  href={dropdownItem.path}
+                                  className="dropdown-item"
+                                >
+                                  {dropdownItem.name}
+                                </a>
+                              )}
+                            </div>
                           ))}
                         </div>
                       )}
                     </>
                   ) : (
-                    <NavLink
-                      to={item.path}
-                      className={({ isActive }) =>
-                        isActive ? 'nav-link active' : 'nav-link'
-                      }
-                    >
+                    <a href={item.path} className="nav-link">
                       {item.name}
-                    </NavLink>
+                    </a>
                   )}
                 </div>
               ))}
             </nav>
 
             {/* Search Bar */}
-            <form onSubmit={handleSearch} className="search-form">
+            <div className="search-section">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Search..."
                 className="search-input"
               />
-              <button type="submit" className="search-btn">
+              <button onClick={handleSearch} className="search-btn">
                 SEARCH
               </button>
-            </form>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <nav className="mobile-nav">
-              {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="mobile-search">
+              <div className="mobile-search">
                 <input
                   type="text"
                   value={searchQuery}
@@ -197,12 +260,11 @@ const MainHeader = () => {
                   placeholder="Search..."
                   className="mobile-search-input"
                 />
-                <button type="submit" className="mobile-search-btn">
+                <button onClick={handleSearch} className="mobile-search-btn">
                   <Search className="search-icon" />
                 </button>
-              </form>
+              </div>
 
-              {/* Mobile Menu Items */}
               {navigationItems.map((item, index) => (
                 <div key={index} className="mobile-nav-item">
                   {item.hasDropdown ? (
@@ -222,26 +284,26 @@ const MainHeader = () => {
                       {activeDropdown === item.name && (
                         <div className="mobile-dropdown">
                           {item.dropdownItems.map((dropdownItem, dropIndex) => (
-                            <Link
+                            <a
                               key={dropIndex}
-                              to={dropdownItem.path}
+                              href={dropdownItem.path || '#'}
                               className="mobile-dropdown-item"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {dropdownItem.name}
-                            </Link>
+                            </a>
                           ))}
                         </div>
                       )}
                     </>
                   ) : (
-                    <NavLink
-                      to={item.path}
+                    <a
+                      href={item.path}
                       className="mobile-nav-link"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
-                    </NavLink>
+                    </a>
                   )}
                 </div>
               ))}

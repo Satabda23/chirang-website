@@ -1,0 +1,407 @@
+/* ============================================
+   ABOUT DISTRICT PAGE STYLES
+   ============================================ */
+
+.about-district-page {
+    background-color: #f8fafc;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ============================================
+   BREADCRUMB SECTION
+   ============================================ */
+
+.breadcrumb-section {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.breadcrumb a:hover {
+    color: #1e40af;
+    background-color: #eff6ff;
+}
+
+.breadcrumb .separator {
+    color: #9ca3af;
+    margin: 0 0.25rem;
+}
+
+.breadcrumb .current {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* ============================================
+   LEFT SIDEBAR
+   ============================================ */
+
+.about-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    color: #2563eb;
+    border-color: #bfdbfe;
+    transform: translateX(4px);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.sidebar-link.active .arrow-icon {
+    color: white;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+}
+
+.sidebar-link:hover .arrow-icon {
+    color: #2563eb;
+    transform: translateX(4px);
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+.about-main {
+    min-height: 600px;
+}
+
+.about-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.about-header {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    padding: 2rem 2.5rem;
+    border-bottom: 4px solid #fbbf24;
+}
+
+.about-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   CONTENT SECTION
+   ============================================ */
+
+.about-content {
+    padding: 2.5rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e40af;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.last-updated {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    background-color: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-text {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media screen and (max-width: 1024px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-sidebar {
+        position: static;
+    }
+
+    .sidebar-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-layout {
+        padding: 1.5rem 0;
+    }
+
+    .about-header {
+        padding: 1.75rem 2rem;
+    }
+
+    .about-title {
+        font-size: 28px;
+    }
+
+    .about-content {
+        padding: 2rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .content-title {
+        font-size: 22px;
+    }
+
+    .last-updated {
+        font-size: 12px;
+        padding: 0.375rem 0.875rem;
+    }
+
+    .content-text {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .sidebar-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-link {
+        padding: 0.875rem 1rem;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .breadcrumb-section {
+        padding: 0.75rem 0;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    .about-layout {
+        padding: 1.25rem 0;
+        gap: 1.25rem;
+    }
+
+    .about-header {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .about-title {
+        font-size: 24px;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+    }
+
+    .content-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .content-title {
+        font-size: 20px;
+    }
+
+    .last-updated {
+        font-size: 11px;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .content-body {
+        gap: 1.25rem;
+    }
+
+    .content-text {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sidebar-link {
+        padding: 0.75rem 0.875rem;
+        font-size: 12px;
+    }
+
+    .arrow-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .about-card {
+        animation: none;
+    }
+
+    .sidebar-link,
+    .arrow-icon {
+        transition: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .about-district-page {
+        background-color: white;
+    }
+
+    .about-sidebar {
+        display: none;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .about-header {
+        background: white;
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .about-title {
+        color: #1e40af;
+        text-shadow: none;
+    }
+
+    .about-card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+
+    .content-text {
+        text-align: left;
+    }
+}

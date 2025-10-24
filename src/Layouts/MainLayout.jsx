@@ -2,7 +2,8 @@
 import { Outlet } from 'react-router-dom';
 import TopHeader from '../components/header/TopHeader/TopHeader';
 import MainHeader from '../components/header/MainHeader/MainHeader';
-import './MainLayout.css';  // Make sure this matches your actual filename
+import Footer from '../components/footer/Footer';
+import './MainLayout.css';
 
 const MainLayout = () => {
   return (
@@ -11,17 +12,17 @@ const MainLayout = () => {
       <a href="#main-content" className="skip-to-main">
         Skip to main content
       </a>
-
-      {/* Top Orange Bar with Social Media & Accessibility */}
+      {/* Header Section */}
       <TopHeader />
-      
-      {/* Main Navigation Header with Logo & Menu */}
       <MainHeader />
       
       {/* Main Page Content Area */}
       <main id="main-content" className="main-content">
         <Outlet />
       </main>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

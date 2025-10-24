@@ -1,0 +1,559 @@
+/* ============================================
+   PREMIUM DISTRICT PROFILE PAGE STYLES
+   ============================================ */
+
+.district-profile-page {
+    background-color: #f8fafc;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ============================================
+   BREADCRUMB SECTION
+   ============================================ */
+
+.breadcrumb-section {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.breadcrumb a:hover {
+    color: #1e40af;
+    background-color: #eff6ff;
+}
+
+.breadcrumb .separator {
+    color: #9ca3af;
+    margin: 0 0.25rem;
+}
+
+.breadcrumb .current {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* ============================================
+   LEFT SIDEBAR
+   ============================================ */
+
+.profile-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.sidebar-link {
+    padding: 1rem 1.25rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-link:hover {
+    background-color: #f0f9ff;
+    color: #2563eb;
+    border-left-color: #3b82f6;
+    padding-left: 1.5rem;
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: #1e40af;
+    font-weight: 700;
+    border-left-color: #2563eb;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+.profile-main {
+    min-height: 600px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    padding: 2rem 2.5rem;
+}
+
+.profile-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+
+.content-section {
+    padding: 2.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.content-section:last-child {
+    border-bottom: none;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e40af;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid #dbeafe;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+    border-radius: 2px;
+}
+
+.last-updated {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    background-color: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.section-content {
+    margin-top: 1.5rem;
+}
+
+.intro-text {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+}
+
+/* ============================================
+   DATA TABLE
+   ============================================ */
+
+.data-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.data-table.single-column .table-row {
+    grid-template-columns: 1fr;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.table-row:hover {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: #3b82f6;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.table-row.single {
+    grid-template-columns: 1fr;
+}
+
+.table-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cell-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cell-value {
+    font-size: 15px;
+    color: #1f2937;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media screen and (max-width: 1024px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-sidebar {
+        position: static;
+    }
+
+    .sidebar-card {
+        margin-bottom: 2rem;
+    }
+
+    .sidebar-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .table-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-layout {
+        padding: 1.5rem 0;
+        gap: 1.5rem;
+    }
+
+    .profile-header {
+        padding: 1.75rem 2rem;
+    }
+
+    .profile-title {
+        font-size: 28px;
+    }
+
+    .content-section {
+        padding: 2rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 0;
+    }
+
+    .last-updated {
+        font-size: 12px;
+        padding: 0.375rem 0.875rem;
+    }
+
+    .intro-text {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .sidebar-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-link {
+        padding: 0.875rem 1rem;
+    }
+
+    .table-row {
+        padding: 1rem;
+    }
+
+    .cell-label {
+        font-size: 12px;
+    }
+
+    .cell-value {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .breadcrumb-section {
+        padding: 0.75rem 0;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    .profile-layout {
+        padding: 1.25rem 0;
+        gap: 1.25rem;
+    }
+
+    .profile-header {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .profile-title {
+        font-size: 24px;
+    }
+
+    .content-section {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 20px;
+        padding-bottom: 0.625rem;
+    }
+
+    .last-updated {
+        font-size: 11px;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .intro-text {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sidebar-header {
+        padding: 1rem 1.25rem;
+        font-size: 15px;
+    }
+
+    .sidebar-link {
+        padding: 0.75rem 0.875rem;
+        font-size: 13px;
+    }
+
+    .data-table {
+        gap: 0.625rem;
+    }
+
+    .table-row {
+        padding: 0.875rem;
+        gap: 1.25rem;
+    }
+
+    .table-cell {
+        gap: 0.375rem;
+    }
+
+    .cell-label {
+        font-size: 11px;
+    }
+
+    .cell-value {
+        font-size: 13px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.content-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.content-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.content-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.content-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.content-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.content-section:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .content-section {
+        animation: none;
+    }
+
+    .table-row,
+    .sidebar-link {
+        transition: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .district-profile-page {
+        background-color: white;
+    }
+
+    .profile-sidebar {
+        display: none;
+    }
+
+    .profile-layout {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .profile-header {
+        background: white;
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .profile-title {
+        color: #1e40af;
+        text-shadow: none;
+    }
+
+    .profile-card,
+    .table-row {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+        page-break-inside: avoid;
+    }
+
+    .content-section {
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-primary {
+    color: #2563eb;
+}
+
+.text-secondary {
+    color: #6b7280;
+}
